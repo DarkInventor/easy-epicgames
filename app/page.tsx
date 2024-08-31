@@ -201,7 +201,7 @@ export default function LandingPage() {
                 <Globe size={18} className="mr-2" />
                 <ChevronDown size={18} />
               </Button>
-              <div className="absolute right-0 mt-2 w-48 bg-[#2a2a2a] rounded-md shadow-lg py-1 hidden group-hover:block">
+              <div className="absolute right-0 mt-2 w-48 bg-[#2a2a2a] rounded-md shadow-lg py-1 hidden group-hover:block !text-black">
                 <Select value={selectedLanguage} onValueChange={setSelectedLanguage}>
                   <SelectTrigger className="w-full">
                     <SelectValue placeholder="Select Language" />
@@ -313,11 +313,11 @@ export default function LandingPage() {
                         >
                           Add to Cart
                         </Button>
-                        <Button variant="outline" onClick={() => addToWishlist(game)}>
-                          <Heart size={18} />
+                        <Button className='!bg-white hover:!bg-gray-200' variant="outline" onClick={() => addToWishlist(game)} >
+                          <Heart className="text-black hover:text-gray-700" size={18} />
                         </Button>
-                        <Button variant="outline" onClick={() => handleGift(game)}>
-                          <Gift size={18} />
+                        <Button className='!bg-white hover:!bg-gray-200'variant="outline" onClick={() => handleGift(game)}>
+                          <Gift className="text-black hover:text-gray-700" size={18} />
                         </Button>
                       </div>
                     </div>
@@ -335,10 +335,10 @@ export default function LandingPage() {
                     {downloadProgress[game.id] === undefined && (
                       <Button 
                         variant="outline" 
-                        className="w-full mt-2"
+                        className="w-full mt-2 !bg-white hover:!bg-gray-200 text-black !hover:text-gray-500"
                         onClick={() => startDownload(game.id)}
                       >
-                        <Download size={18} className="mr-2" />
+                        <Download size={18} className="mr-2 text-black" />
                         Download
                       </Button>
                     )}
@@ -383,12 +383,12 @@ export default function LandingPage() {
         <section className="py-16 bg-[#121212]">
           <div className="container mx-auto px-4">
             <h2 className="text-2xl font-bold mb-8">Browse by Genre</h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 text-black !hover:text-gray-500">
               {["Action", "Adventure", "RPG", "Strategy", "Sports", "Simulation", "Indie", "Multiplayer", "Racing", "Horror", "Puzzle", "Shooter"].map((category) => (
                 <Button
                   key={category}
                   variant="outline"
-                  className={`h-24 text-lg font-semibold ${appliedFilters.includes(category) ? 'bg-[#0074e4] text-white' : ''}`}
+                  className={`h-24 text-lg font-semibold ${appliedFilters.includes(category) ? 'bg-[#0074e4]' : ''}`}
                   onClick={() => setAppliedFilters(prev => 
                     prev.includes(category) ? prev.filter(f => f !== category) : [...prev, category]
                   )}
@@ -582,3 +582,5 @@ export default function LandingPage() {
     </div>
   )
 }
+
+
